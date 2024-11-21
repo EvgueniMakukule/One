@@ -1,0 +1,17 @@
+procedimento em sql
+
+DELIMITER //
+create procedure AvalicaoesDoResto(idResto int(5))
+ BEGIN
+select utilizador.nomeUt, avaliacao.comentarios, avaliacao.pontuacao from utilizador inner join avaliacao on avaliacao.idUtilizador = utilizador.idUtilizador and avaliacao.idRestourante = idResto;
+ END//
+DELIMITER ;;
+
+
+------------------------------------------------------------------------------
+DELIMITER //
+CREATE procedure getUserReservation(idUser int(5))
+BEGIN
+SELECT *FROM reserva where reserva.idUtilizador=idUser;
+END//
+DELIMITER ;;
